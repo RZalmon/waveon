@@ -1,0 +1,35 @@
+/// SASS Setup
+@import './setup/variables';
+@import './setup/mixins';
+@import './setup/functions';
+
+/// General SCSS
+@import './fonts';
+@import './animations';
+@import './reset';
+@import './base';
+@import './helpers';
+@import './layout';
+
+// CMPS
+@import './cmps/main-navbar';
+@import './cmps/station-slider';
+@import './cmps/login-modal';
+@import './cmps/station-create-modal';
+@import './cmps/search-song';
+@import './cmps/station-list';
+@import './cmps/station-preview';
+@import './cmps/player-controller';
+@import './cmps/station-player';
+@import './cmps/station-settings';
+@import './cmps/station-filter';
+@import './cmps/footer';
+@import './cmps/scroll-down-arrow';
+@import './cmps/genre-cubes';
+@import './cmps/chat';
+
+// Pages
+@import './pages/home';
+@import './pages/signup';
+@import './pages/station-details';
+@import './pages/station-app';

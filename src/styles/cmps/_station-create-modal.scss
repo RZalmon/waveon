@@ -1,0 +1,91 @@
+.station-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to left top, $clr2,  $clr3, $clr3);
+    z-index: 999;
+    color: $clr-white;
+    
+    form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        [type="radio"] {
+            display: none;
+        }
+    }
+    &-link {
+        font-size: 36px;
+        font-weight: 700;
+        border: 2px solid $clr-white;
+        border-radius: 50%;
+        padding: 0 10px;
+        line-height: 40px;
+        display: inline-block;
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        transition: transform .2s linear;
+
+        @include hover-supported {
+            transform: scale(1.1);
+        }
+    }
+    &-type {
+        width: 100%;
+        align-self: stretch;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: rem(20px);
+
+        label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: rem(18px);
+            text-transform: uppercase;
+            cursor: pointer;
+
+            img {
+                transition: transform .2s linear;
+            }
+        }
+        &-icon {
+            width: rem(60px);
+            margin-bottom: rem(10px);
+        }
+        [type=radio]:checked + img {
+            transform: scale(1.2);
+        }
+        [type=radio]:checked ~ span {
+            text-shadow: 1px 0 0 currentColor;
+        }
+    }
+    &-inp {
+        padding: rem(5px) rem(20px);
+        border-radius: 100px;
+        border: 2px solid transparent;
+        color: $clr2;
+        text-transform: capitalize;
+        margin-bottom: rem(20px);
+        
+        &::placeholder {
+            color: $clr2;
+        }
+        &:focus {
+            border-color: $clr2;
+        }
+    }
+    &-btn {
+        text-transform: uppercase;
+        font-size: rem(18px);
+    }
+}
