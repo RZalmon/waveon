@@ -1,0 +1,28 @@
+.station-app {
+    background-color: $clr-white;
+    min-height: 100vh;
+    @include player-controller-ghost;
+    
+    &-header {
+        height: rem(350px);
+        background-image: url('../assets/imgs/app-bg-default.jpg');
+        background-color: $clr3;
+        background-blend-mode: darken; 
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        margin-bottom: rem(20px);
+        padding-bottom: rem(20px);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr 1fr .7fr;
+    }
+    &-list {
+
+        &-title{
+            text-align: left;
+            font-size: rem(24px);
+            text-transform: uppercase;
+        }
+    }
+}

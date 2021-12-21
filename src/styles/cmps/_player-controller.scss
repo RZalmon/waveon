@@ -1,0 +1,190 @@
+.player-controller {
+    background-color: $clr-black;
+    color: $clr-white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+    text-transform: capitalize;
+    
+
+    &-now-playing {
+        display: inline-flex;
+        width: 100%;
+        font-size: 0.775rem;
+        align-items: center;
+        justify-content: center;
+        
+        &-img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            padding: 5px;
+            padding-right: 5px;
+            position: absolute;
+            left: 5px;
+            top: 5px;
+        }
+    }
+    &-title {
+        text-transform: uppercase;
+        padding: 5px;
+    }
+    &-song {
+        width: 34ch;
+        overflow: hidden;
+        white-space: nowrap; 
+        text-overflow: ellipsis;
+        
+        @include for-mobile-layout {
+            width: 16ch;
+        }
+        @include for-narrow-layout {
+            width: 24ch;
+        }
+        @include for-normal-layout {
+            width: 32ch;
+        }
+    }
+    &-controler {
+        border-radius: 25px;
+        max-width: 1060px;
+        padding-bottom: 10px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;       
+        align-items: center;
+        flex-wrap: wrap;
+        
+        @include for-normal-layout {
+            flex-direction: row;       
+        }
+        &-volume { 
+            display: inline-flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            transform: translateY(-5px);
+            position: fixed;
+            right: 20px;
+            
+            
+            &-icon {
+                height: 30px;
+                width: 30px;
+            }
+
+            &-range-wrap {
+                display: inline-flex;
+                border-radius: 15px;
+                padding: 11px 8px 11px 8px;
+                background-color: $clr4;
+                transform: rotateZ(-90deg) translate(100px, 90px);
+                position: relative;
+                opacity: 0;
+                transition: opacity .3s;
+                
+                &:hover {
+                    opacity: .9;
+                }
+
+                input[type=range] {
+                    cursor: pointer;
+                    -webkit-appearance: none;
+
+                    &::-webkit-slider-thumb {
+                        border: 1px solid #00001E;
+                        height: 16px;
+                        width: 16px;
+                        border-radius: 15px;
+                        background: #FFFFFF;
+                        -webkit-appearance: none;
+                        margin-top: -5.5px;
+                    }
+
+                    &::-webkit-slider-runnable-track {
+                        width: 100%;
+                        height: 5px;
+                    }
+                }
+            }
+
+            &:hover .player-controller-controler-volume-range-wrap {
+                opacity: .9;
+            }
+        }
+
+        &-btns {
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+            margin-bottom: 5px;
+            // transform: translateX(-80px);
+
+            @include for-narrow-layout {
+                width: 70%;
+            }
+            
+            @include for-normal-layout {
+                // transform: translateX(-180px);
+                // justify-content: space-between;
+                width: 50%;
+            }
+
+            span {
+                height: 30px;
+                width: 30px;
+            }
+            
+            svg {
+                cursor: pointer;
+                height: 30px;
+                width: 30px;
+                fill: $clr-white;
+                transition: transform .3s;
+
+                @include hover-supported {
+                    fill: $clr4;
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        &-playback {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+            padding: 0 20px;
+
+            @include for-normal-layout {
+                padding: 0;
+            }
+
+            &-time-elapsed-digital {
+                font-family: monospace;
+                margin: 0 5px 0 5px;
+                font-size: rem(14px);
+            }
+
+            &-timeline {
+                width: 80%;
+                height: 7px;
+                border-radius: 10px;
+                border: 1px inset;
+                cursor: pointer;
+            }
+     
+            &-timeline-progress-bar {
+                background-color: $clr3;
+                height: 100%;
+                width: 0%;
+            }
+        }
+        
+
+    }
+}
+
+

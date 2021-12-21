@@ -1,0 +1,153 @@
+.station-player {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    border-radius: 3px;
+    // margin-top: rem(31px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 660px;
+    
+    @include for-normal-layout {
+        grid-column: 1 / 3;
+        height: 680px;
+    }
+
+    .youtube-iframe {
+        background-color: #fff;
+        border-radius: 3px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $clr-white;
+        width: 100%;
+        max-width: 600px;
+        align-self: center;
+        
+        .youtube-container {
+            width: 100%;
+        }
+        &-loader {
+            height: 100px;
+            width: 100px;
+            margin: auto;
+        }
+        &-claps-container {
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            // background-color: rgba($color: #ffffff, $alpha: 0.1);
+            padding: 5px;
+            &-btn img{
+                width: rem(28px);
+            }
+            &-rate{
+                font-size: rem(28px);
+                color: $clr-white;
+            }
+        }
+        &-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(#fff, .9);
+        }
+    }
+
+    &-playlist {
+        flex-grow: 1;
+        overflow-y: auto;
+        
+        &-item {
+            background-image: url('../assets/imgs/icons/music-note.svg');
+            background-repeat: no-repeat;
+            background-size: rem(25px);
+            background-position: rem(60px);
+            background-color: #fff;
+            padding: rem(10px) rem(100px);
+            font-size: rem(18px);
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+
+            &:nth-child(odd) {
+                background-color: rgba($clr4, .1);
+            }
+            span {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                display: block;
+                cursor: grab;
+
+                &:active {
+                    cursor: grabbing;
+                }
+            }
+            @media not all and (pointer: coarse) {
+                &:hover {
+                    background-color: darken(#fff, 10%);
+                }
+                &:nth-child(odd):hover {
+                    background-color: darken(rgba($clr4, .1), 40%);
+                }
+                .station-player-playlist-play {
+                    transform: translateX(-20px);
+                }
+                .station-player-playlist-remove {
+                    transform: translateX(20px);
+                }
+                .station-player-playlist-play,
+                .station-player-playlist-remove {
+                    transition: all .3s linear;
+                    opacity: 0;
+                }
+                &:hover .station-player-playlist-play,
+                &:hover .station-player-playlist-remove {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        }
+        &-play, &-remove {
+            position: absolute;
+            top: 0;
+            background-color: transparent;
+            border-color: transparent;
+            height: 100%;
+            font-weight: 700;
+            font-size: rem(30px);
+            color: lighten($clr-black, 50%);
+            
+            @include hover-supported {
+                color: $clr-black;
+            }
+        }
+        &-play {
+            left: 20px;
+            
+        }
+        &-remove {
+            right: 20px;
+        }
+    }
+}
+.flip-list-move {
+  transition: transform .5s;
+}
+.no-move {
+  transition: transform 0;
+}
+.ghost {
+  opacity: 0.5;
+  background: rgba($clr-white, .5);
+}
+.list-group {
+    min-height: 20px;
+}
+.list-group-item {
+    cursor: move;
+}

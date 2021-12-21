@@ -1,0 +1,29 @@
+html {
+    font-weight: 300;
+    color: $clr-black;
+    font-family: baloo, sans-serif;
+    scroll-behavior: smooth;
+}
+h2, h3 {
+    font-family: overpass, serif;
+    font-size: rem(36px);
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+#app {
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 0.7em;
+}
+   
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+   
+  body::-webkit-scrollbar-thumb {
+    // background-color: rgba($clr3, .7); //color should be somehow $clr-black
+    background-color: rgba($clr-black, .7); //color should be somehow $clr-black
+    border-radius: 5px;
+}
